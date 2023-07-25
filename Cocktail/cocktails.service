@@ -1,0 +1,17 @@
+[Unit]
+Description=Cocktails app
+After=cloud-final.service
+
+[Service]
+WorkingDirectory=/home/ubuntu/cocktails
+ExecStart=/usr/bin/node /home/ubuntu/cocktails/server.js
+Restart=always 
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=cocktails-app
+User=ubuntu
+
+[Install]
+WantedBy=multi-user.target
+WantedBy=cloud-init.target
